@@ -10,7 +10,7 @@
 
   #page-home header a {
     position: absolute;
-    bottom: 0;
+    bottom: 0; /*48px no dele*/
 
     left: 50%;
     transform: translateX(-50%);
@@ -20,6 +20,15 @@
     align-items: center;
     margin-bottom: 100px;
   }
+
+  #page-search-results .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #page-search-results .cards {
+    height: 400px;
+  }
+
 }
 
 @media (min-width: 2000px) {
