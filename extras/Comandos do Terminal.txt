@@ -1,0 +1,6 @@
+Comandos Terminal:
+
+npm start : Iniciar servidor
+npm install nodemon -D : Atualizar o servidor a cada alteração que eu fizer
+                                 -D: Usamos enquando ainda estamos desenvolvendo
+npm install nunjucks: Deixar o html mais dinâmico, adicionando blocos automaticamente (usando template engine
