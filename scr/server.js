@@ -1,8 +1,14 @@
 const express = require ("express")
 const server = express ()
 
+//Pegar o banco de dados
+const db = require ("./database/db.js")
+
 //Configurar pasta publica para ser encontrada pelo server
 server.use (express.static ("public"))
+
+//Habilitar o uso do req.body na nossa aplicação
+server.use (express.urlencoded ({ extended: true }))
 
 //Utilizando template engine
 const nunjucks = require ("nunjucks")
@@ -21,11 +27,73 @@ server.get ("/", (req, res) => {
 })
 
 server.get ("/createPoint", (req, res) => {
+  
+  //Querry Strings da nossa URL
+  //req.query
+
   return res.render ("createPoint.html")
 })
 
+server.post ("/savePoint", (req, res) => {
+  //O corpo do nosso formulário
+  //req.body
+
+  //Inserir dados no banco de dados
+  const query = `
+    INSERT INTO places (
+      name,
+      image,
+      address,
+      address2,
+      state,
+      city,
+      items
+    ) VALUES (?,?,?,?,?,?,?);
+  `
+  
+  const values = [ 
+    req.body.name,
+    req.body.image,
+    req.body.address,
+    req.body.address2,
+    req.body.state,
+    req.body.city,
+    req.body.items
+   ]
+
+  function afterInsertData(err) {
+    if (err) {
+      return console.log
+    }
+    
+    return res.render ("createPoint.html", { saved: true })
+  }
+
+  db.run (query, values, afterInsertData)
+  
+})
+
 server.get ("/searchResults", (req, res) => {
-  return res.render ("searchResults.html")
+
+  const search = req.query.search
+
+  if (search == "") {
+    //Pesquisa vazia
+    return res.render ("searchResults.html", { total: 0 })
+  }
+
+  //pegar dados do banco de dados
+  db.all (`SELECT * FROM places WHERE city LIKE '%${ search }%'`, function (err, rows) {
+    if (err) {
+      return console.log
+    }
+
+    const total = rows.length
+
+    //Mostrar a página html com os dados do banco de dados
+    return res.render ("searchResults.html", { places: rows, total: total })
+  })
+
 })
 
 //ligar o servidor
