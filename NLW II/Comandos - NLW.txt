@@ -1,0 +1,5 @@
+Criar projeto
+
+Bash - Pasta do Projeto
+yarn create react-app project-name ~~templete typescript
+npx create-react-app project-name ~~template typescript
