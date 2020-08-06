@@ -1,5 +1,12 @@
 Criar projeto
-
 Bash - Pasta do Projeto
-yarn create react-app project-name ~~templete typescript
-npx create-react-app project-name ~~template typescript
+. yarn create react-app project-name ~~template typescript
+. npx create-react-app project-name ~~template typescript
+
+Iniciar projeto dentro da pasta criada
+. yarn start
+. npm start
+
+Controlar qual página/componente está ativo
+. yarn add react-router-dom
+. yarn add @types/react-router-dom -D
