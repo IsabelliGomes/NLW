@@ -1,7 +1,12 @@
-Criar projeto
-Bash - Pasta do Projeto
+Criar projeto web
+PS - Pasta do Projeto
+-> ex.: project name:web
+
 . yarn create react-app project-name ~~template typescript
 . npx create-react-app project-name ~~template typescript
+
+Abrir VSCode
+Code .
 
 Iniciar projeto dentro da pasta criada
 . yarn start
@@ -10,3 +15,56 @@ Iniciar projeto dentro da pasta criada
 Controlar qual página/componente está ativo
 . yarn add react-router-dom
 . yarn add @types/react-router-dom -D
+
+- Dps de criar a API do BackEnd
+
+.yarn add axios
+
+--------------------------------------------------
+
+Criar Projeto server
+PS - Pasta do Projeto
+-> ex.: project name:server
+
+mdkir project name
+cd project name
+
+Iniciar o yarn
+yarn init -y
+
+Abrir VSCode
+code .
+
+Instalar o Typescript
+. yarn add typescript -D
+. npm install
+
+. yarn tsc --init
+. npx tsc --init 
+
+. yarn add ts-node-dev -D
+
+Iniciar projeto dentro da pasta criada
+. yarn start
+. npm start
+
+. yarn add express
+
+. yarn add knex sqlite3
+. yarn knex:migrate
+
+. yarn add cors (permite q aplicações diferentes façam acesso a minha API)
+
+---------------------------------------
+
+Criar projeto Mobile
+expo init mobile
+
+expo install expo-font @expo-google-fonts/archivo @expo-google-fonts/poppins
+
+yarn add @react-navigation/native
+
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+yarn add @react-navigation/stack
+
